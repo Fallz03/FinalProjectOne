@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin()
-                .defaultSuccessUrl("/laptop-base", true)
+                .defaultSuccessUrl("/laptop-shop", true)
                 .and()
                 .logout()
                 .logoutSuccessUrl("/laptop-shop");

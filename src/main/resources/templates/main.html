@@ -103,12 +103,17 @@ height:50%;
     <hr>
     <div class="menu">
 
-        <div class="menu-items" sec:authorize="!isAuthenticated()">
+        <div class="menu-items">
+            <img th:src="@{/imgsForMain/logo1.png}" alt="">
+            <a  href="/laptop-base">Ноутбуки</a>
+        </div>
+
+        <div class="menu-items" >
             <img th:src="@{/imgsForMain/logo1.png}" alt="">
             <a  href="/laptop-shop">Главная Страница</a>
         </div>
 
-        <div class="menu-items" sec:authorize="!isAuthenticated()">
+        <div class="menu-items" >
             <img th:src="@{/imgsForMain/LogoMakr-32MkLd.png}" alt="" >
             <a  href="/laptop-shop/shop">Покупка и продажа компьютеров</a>
         </div>
@@ -119,11 +124,11 @@ height:50%;
         </div>
 
             <div class="menu-items" sec:authorize="isAuthenticated()">
-                <img th:src="@{/imgsForMain/logout.png}" alt="">
+                <img th:src="@{/imgsForMain/LogoMakr-6yvo8i.png}" alt="">
                 <a  href="/logout">Выход</a>
             </div>
 
-        <div class="menuitems"  sec:authorize="!isAuthenticated()">
+        <div class="menu-items" >
             <img th:src="@{/imgsForMain/LogoMakr-37LUwA.png}" alt="">
             <a  href="/laptop-shop/sign-up">Новый пользователь</a>
         </div>

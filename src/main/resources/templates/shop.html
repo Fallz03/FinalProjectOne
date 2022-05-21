@@ -81,7 +81,7 @@ height:100px;
     </style>
     <div id="basket" class="bg-secondary text-center" >
         <div th:each="product : ${purchaseList}">
-            <img th:src="@{api/{accountId}/{imageLink} (imageLink=${product.imageLink},accountId=${product.theAccount.id})}"
+            <img th:src="@{/api/{accountId}/{imageLink} (imageLink=${product.imageLink},accountId=${product.theAccount.id})}"
                  class="card-img-top" alt="...">
             <span class="btn btn-danger">X</span>
             <a th:href="@{/}" class="btn btn-primary">Purchase</a>

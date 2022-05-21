@@ -25,6 +25,7 @@ public class MainRestController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(byteFile);
         return byteFile;
     }
 }
