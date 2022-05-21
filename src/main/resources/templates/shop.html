@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<style>
+body {
+    background: linear-gradient(-35deg, #ee7752, #e73c7e, #23a6d5,rgb(220, 255, 63), #23d5ab);
+    background-size: 400% 400%;
+    -webkit-animation: gradient 20s ease infinite;
+    animation: gradient 20s ease infinite;
+height:100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+</style>
+<body>
+<div class="container  row">
+    <div class="card col-3 text-center" style="width: 18rem;" th:each="laptop : ${laptop_list}">
+        <img th:src="@{api/{accountId}/{imageLink} (imageLink=${laptop.imageLink},accountId=${laptop.theAccount.id})}"
+             class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 th:text="${laptop.brend}" class="card-title">Card title</h5>
+            <span class="card-text">
+
+                 <p>Laptop_model: <span th:text="${laptop.model}"></span></p>
+                 <p>Price: <span th:text="${laptop.price}"></span></p>
+                 <p>Full name: <span th:text="${laptop.theAccount.name_surname}"></span></p>
+                 <p>Email: <span th:text="${laptop.theAccount.gmail}"> </span></p>
+                 <p>Phone number: <span th:text="${laptop.theAccount.phone_number}"> </span></p>
+
+
+            </span>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a th:href="@{/laptop-shop/basket/buy/{id} (id=${laptop.id}) }" class="btn btn-success">Buy</a>
+        </div>
+    </div>
+    <style>
+        #basket{
+        position:fixed;
+        top:0;
+        right:0;
+        width:10%;
+        height:100vh;
+
+#basket img{
+width:100px;
+height:100px;
+}
+        }
+    </style>
+    <div id="basket" class="bg-secondary text-center" >
+        <div th:each="product : ${purchaseList}">
+            <img th:src="@{api/{accountId}/{imageLink} (imageLink=${product.imageLink},accountId=${product.theAccount.id})}"
+                 class="card-img-top" alt="...">
+            <span class="btn btn-danger">X</span>
+            <a th:href="@{/}" class="btn btn-primary">Purchase</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
