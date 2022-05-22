@@ -103,33 +103,33 @@ height:50%;
     <hr>
     <div class="menu">
 
-        <div class="menu-items">
-            <img th:src="@{/imgsForMain/logo1.png}" alt="">
-            <a  href="/laptop-base">Ноутбуки</a>
-        </div>
+
 
         <div class="menu-items" >
-            <img th:src="@{/imgsForMain/logo1.png}" alt="">
+            <img th:src="@{/imgsForMain/homepage.png}" alt="">
             <a  href="/laptop-shop">Главная Страница</a>
         </div>
 
         <div class="menu-items" >
-            <img th:src="@{/imgsForMain/LogoMakr-32MkLd.png}" alt="" >
+            <img th:src="@{/imgsForMain/shop.png}" alt="" >
             <a  href="/laptop-shop/shop">Покупка и продажа компьютеров</a>
         </div>
 
         <div class="menu-items" sec:authorize="!isAuthenticated()">
-            <img th:src="@{/imgsForMain/LogoMakr-7IRiir.png}" alt="">
+            <img th:src="@{/imgsForMain/login.png}" alt="">
             <a  href="/login">Вход</a>
         </div>
 
             <div class="menu-items" sec:authorize="isAuthenticated()">
-                <img th:src="@{/imgsForMain/LogoMakr-6yvo8i.png}" alt="">
+                <img th:src="@{/imgsForMain/logout.png}" alt="">
                 <a  href="/logout">Выход</a>
             </div>
-
-        <div class="menu-items" >
-            <img th:src="@{/imgsForMain/LogoMakr-37LUwA.png}" alt="">
+        <div class="menu-items" sec:authorize="isAuthenticated()">
+            <img th:src="@{/imgsForMain/laptopsandpcs.png}" alt="">
+            <a  href="/laptop-base">Ноутбуки</a>
+        </div>
+        <div class="menu-items" sec:authorize="!isAuthenticated()">
+            <img th:src="@{/imgsForMain/addaccount.png}" alt="">
             <a  href="/laptop-shop/sign-up">Новый пользователь</a>
         </div>
 </div>

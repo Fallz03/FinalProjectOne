@@ -28,4 +28,8 @@ public class MainRestController {
         System.out.println(byteFile);
         return byteFile;
     }
+    @GetMapping
+    public String getName(){
+        return "name";
+    }
 }

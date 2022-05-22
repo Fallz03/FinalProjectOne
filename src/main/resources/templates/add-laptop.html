@@ -11,22 +11,71 @@
 <form action="/laptop-base/save" method="POST" th:object="${laptop}"
       class="container" enctype="multipart/form-data">
   <input type="hidden" th:field="*{id}">
-  <label for="name_">Laptop Brend</label>
+  <label for="name_">Марка</label>
   <input type="text"  id="name_" th:field="*{brend}"><br>
-
+  <span th:if="${#fields.hasErrors('brend')}" th:errors="*{brend}"></span>
   <br>
-  <label for="laptop_model">Laptop model</label>
+  <label for="laptop_model">Модель</label>
   <input type="text"  id="laptop_model" th:field="*{model}"><br>
-
+  <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span>
   <br>
-  <label for="price">Price</label>
+  <label for="price">Цена</label>
   <input type="number" id="price" th:field="*{price}"><br>
   <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
   <br>
 
+  <label for="description">Описание</label>
+  <input type="text" id="description" th:field="*{description}"><br>
+  <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+  <br>
 
+  <label for="oldornew">Состояние</label>
+  <select th:field="*{oldornew}" id="oldornew">
+    <option value="Old">Old</option>
+    <option value="New">New</option>
+  </select>
+  <span th:if="${#fields.hasErrors('oldornew')}" th:errors="*{oldornew}"></span>
+  <br>
   <label>Image</label>
   <input type="file"  name="laptop_image"><br>
+
+
+  <br>
+
+  <label for="ram">Оперативная Память</label>
+  <input type="number" id="ram" th:field="*{ram}"><br>
+  <span th:if="${#fields.hasErrors('ram')}" th:errors="*{ram}"></span>
+  <br>
+
+  <label for="cpu">Процессор</label>
+  <input type="text" id="cpu" th:field="*{cpu}"><br>
+  <span th:if="${#fields.hasErrors('cpu')}" th:errors="*{cpu}"></span>
+  <br>
+
+
+  <label for="memory">Память</label>
+  <input type="number" id="memory" th:field="*{memory}"><br>
+  <span th:if="${#fields.hasErrors('memory')}" th:errors="*{memory}"></span>
+  <br>
+  <label for="typeofmemory">Тип Памяти</label>
+  <select th:field="*{typeofmemory}" id="typeofmemory">
+    <option value="SSD">SSD</option>
+    <option value="HDD">HDD</option>
+  </select>
+  <span th:if="${#fields.hasErrors('typeofmemory')}" th:errors="*{typeofmemory}"></span>
+  <br>
+
+
+  <label for="system">Операционная Система</label>
+  <input type="text" id="system" th:field="*{system}"><br>
+  <span th:if="${#fields.hasErrors('system')}" th:errors="*{system}"></span>
+  <br>
+
+  <label for="gpu">GPU</label>
+  <input type="text" id="gpu" th:field="*{gpu}"><br>
+  <span th:if="${#fields.hasErrors('gpu')}" th:errors="*{gpu}"></span>
+  <br>
+
 
   <input type="submit" value="Save" class="btn btn-danger">
 </form>

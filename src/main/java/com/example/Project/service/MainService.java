@@ -84,6 +84,7 @@ public class MainService {
         }
         return laptopList;
     }
+    @Transactional
     public Laptop getLaptopById(long id){
         return laptopRepository.getLaptopById(id);
     }

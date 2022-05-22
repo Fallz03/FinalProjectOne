@@ -9,18 +9,18 @@
 <body>
 
 <nav class="text-center">
-    <h2>Laptop Base</h2>
-    <a href="/laptop-base/add-laptop" class="btn btn-success">Add Laptop</a>
-    <a href="/laptop-shop" class="btn btn-warning">Home Page</a>
+    <h2>Ваши Ноутбуки</h2>
+    <a href="/laptop-base/add-laptop" class="btn btn-success">Добавить Ноутбук</a>
+    <a href="/laptop-shop" class="btn btn-warning">Главная Страница</a>
 </nav>
 <table class="table">
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">laptop_genre</th>
-        <th scope="col">Price</th>
-
+        <th scope="col">Марка</th>
+        <th scope="col">Модель</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Операции</th>
     </tr>
     </thead>
     <tbody>
@@ -29,7 +29,10 @@
         <td th:text="${laptop.brend}">name </td>
         <td th:text="${laptop.model}">laptop_genre</td>
         <td th:text="${laptop.price}+'$'">price</td>
-
+<td>
+    <button>Редактировать</button>
+    <button>Удалить</button>
+</td>
     </tr>
     </tbody>
 </table>

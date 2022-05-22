@@ -14,6 +14,14 @@ public class Laptop {
     private String brend;
     private String model;
     private String price;
+    private String ram;
+    private String cpu;
+    private String memory;
+    private String typeofmemory;
+    private String gpu;
+    private String system;
+    private String description;
+    private String oldornew;
     private String imageLink;
 
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
@@ -27,6 +35,14 @@ return "Laptop{" +
         ", brend=' " +brend + '\''+
         ", model='" + model + '\'' +
         ", price='" + price + '\'' +
+        ", ram='" + ram + '\'' +
+        ", cpu='" + cpu + '\'' +
+        ", memory='" + memory + '\'' +
+        ", typeofmemory='" + typeofmemory + '\'' +
+        ", gpu='" + gpu + '\'' +
+        ", gpu='" + system + '\'' +
+        ", description='" + description + '\'' +
+        ", oldornew='" + oldornew+ '\'' +
         ", imageLink='" + imageLink + '\'' +
         '}';
 

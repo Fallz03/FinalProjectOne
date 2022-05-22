@@ -13,7 +13,7 @@ body {
     background-size: 400% 400%;
     -webkit-animation: gradient 20s ease infinite;
     animation: gradient 20s ease infinite;
-height:100vh;
+
 }
 
 @keyframes gradient {
@@ -45,23 +45,27 @@ height:100vh;
 }
 </style>
 <body>
+
+<nav class="text-center">
+    <h2>Магазин</h2>
+    <a href="/laptop-shop" class="btn btn-warning">Home Page</a>
+</nav>
 <div class="container  row">
     <div class="card col-3 text-center" style="width: 18rem;" th:each="laptop : ${laptop_list}">
-        <img th:src="@{api/{accountId}/{imageLink} (imageLink=${laptop.imageLink},accountId=${laptop.theAccount.id})}"
+        <img th:src="@{/api/{accountId}/{imageLink} (imageLink=${laptop.imageLink},accountId=${laptop.theAccount.id})}"
              class="card-img-top" alt="...">
         <div class="card-body">
             <h5 th:text="${laptop.brend}" class="card-title">Card title</h5>
             <span class="card-text">
 
                  <p>Laptop_model: <span th:text="${laptop.model}"></span></p>
-                 <p>Price: <span th:text="${laptop.price}"></span></p>
+                 <p>Price: <span th:text="${laptop.price}+'$'"></span></p>
                  <p>Full name: <span th:text="${laptop.theAccount.name_surname}"></span></p>
-                 <p>Email: <span th:text="${laptop.theAccount.gmail}"> </span></p>
                  <p>Phone number: <span th:text="${laptop.theAccount.phone_number}"> </span></p>
 
 
             </span>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a th:href="@{/laptop-shop/info/{id} (id=${laptop.id})}" class="btn btn-primary">Ещё Детали</a>
             <a th:href="@{/laptop-shop/basket/buy/{id} (id=${laptop.id}) }" class="btn btn-success">Buy</a>
         </div>
     </div>
@@ -83,7 +87,8 @@ height:100px;
         <div th:each="product : ${purchaseList}">
             <img th:src="@{/api/{accountId}/{imageLink} (imageLink=${product.imageLink},accountId=${product.theAccount.id})}"
                  class="card-img-top" alt="...">
-            <span class="btn btn-danger">X</span>
+            <a  th:href="@{/}"
+                    class="btn btn-danger">X</a>
             <a th:href="@{/}" class="btn btn-primary">Purchase</a>
         </div>
     </div>

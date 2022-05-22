@@ -59,7 +59,31 @@ public class MainController {
             purchaseList.add(laptop);
         }
 
-        System.out.println(purchaseList);
-        return "redirect:/laptop-shop";
+
+        return "redirect:/laptop-shop/shop";
     }
-}
+@GetMapping("/info/{id}")
+    public String getInfoPage(
+            @PathVariable("id") long id,
+    Model model
+            ){
+        Laptop theLaptop = mainService.getLaptopById(id);
+        model.addAttribute("laptop_info" ,theLaptop);
+        return "infopage";
+    }
+
+//    @GetMapping("/basket/buy/delete/{id}")
+//    public String deleteProcess(
+//            @PathVariable("id") long id
+//    ) {
+//        Laptop laptop = mainService.getLaptopById(id);
+//        if(purchaseList.contains(laptop)){
+//            purchaseList.remove(laptop);
+//        }
+//
+//        System.out.println(purchaseList);
+//
+//        return "redirect:/laptop-shop/shop";
+//    }
+    }
+
