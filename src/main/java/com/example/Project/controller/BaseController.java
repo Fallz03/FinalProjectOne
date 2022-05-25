@@ -38,5 +38,25 @@ public class BaseController {
         System.out.println(multipartFile);
         mainService.addLaptop(theLaptop,multipartFile);
         return "redirect:/laptop-base";
-    }}
+    }
+
+@GetMapping("/delete/{id}")
+    public String deleteLaptopById(
+            @PathVariable("id") long id
+){
+        mainService.deleteLaptopById(id);
+return "redirect:/laptop-base";
+
+}
+    @GetMapping("/edit/{id}")
+    public String editLaptopById(
+            @PathVariable("id") long id,
+            Model model
+    ){
+Laptop laptop = mainService.getLaptopById(id);
+model.addAttribute("laptop",laptop);
+return "add-laptop";
+    }
+
+}
 

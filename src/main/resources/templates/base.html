@@ -30,8 +30,8 @@
         <td th:text="${laptop.model}">laptop_genre</td>
         <td th:text="${laptop.price}+'$'">price</td>
 <td>
-    <button>Редактировать</button>
-    <button>Удалить</button>
+    <a class="btn btn-primary" th:href="@{/laptop-base/edit/{id} (id=${laptop.id}) }">Редактировать</a>
+    <a class="btn btn-danger" th:href="@{/laptop-base/delete/{id} (id=${laptop.id})}">Удалить</a>
 </td>
     </tr>
     </tbody>

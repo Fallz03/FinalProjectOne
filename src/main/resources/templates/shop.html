@@ -8,9 +8,17 @@
 </head>
 
 <style>
+
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
 body {
     background: linear-gradient(-35deg, #ee7752, #e73c7e, #23a6d5,rgb(220, 255, 63), #23d5ab);
-    background-size: 400% 400%;
+    background-size: 400% 12000%;
     -webkit-animation: gradient 20s ease infinite;
     animation: gradient 20s ease infinite;
 
@@ -43,6 +51,19 @@ body {
         background-position: 0% 50%;
     }
 }
+nav{
+width:90%;
+height:10vh;
+background-color:cyan;
+}
+.card{
+margin-top:20px;
+margin-left:20px;
+}
+.container{
+display:grid;
+grid-template-columns: auto auto auto auto auto;
+}
 </style>
 <body>
 
@@ -50,8 +71,8 @@ body {
     <h2>Магазин</h2>
     <a href="/laptop-shop" class="btn btn-warning">Home Page</a>
 </nav>
-<div class="container  row">
-    <div class="card col-3 text-center" style="width: 18rem;" th:each="laptop : ${laptop_list}">
+<div class="container  row" style="padding-left:5%;">
+    <div class="card col-3 text-center" style="width: 18rem; border-radius:10px;" th:each="laptop : ${laptop_list}">
         <img th:src="@{/api/{accountId}/{imageLink} (imageLink=${laptop.imageLink},accountId=${laptop.theAccount.id})}"
              class="card-img-top" alt="...">
         <div class="card-body">
@@ -87,11 +108,36 @@ height:100px;
         <div th:each="product : ${purchaseList}">
             <img th:src="@{/api/{accountId}/{imageLink} (imageLink=${product.imageLink},accountId=${product.theAccount.id})}"
                  class="card-img-top" alt="...">
-            <a  th:href="@{/}"
+            <a  th:href="@{/laptop-shop/basket/buy/delete/{id} (id=${product.id})}"
                     class="btn btn-danger">X</a>
-            <a th:href="@{/}" class="btn btn-primary">Purchase</a>
+
         </div>
+        <a th:href="@{/laptop-shop/basket/buy/purchase}" id="purchasebtn" class="btn btn-primary">Purchase</a>
     </div>
 </div>
+<div style="width:500px; height:60px; background-color:white; border-radius: 10px ; position:fixed; top:850px; left:650px;  text-align: center; display:none; z-index:1000; transition:3s;" id="purchaseText" >
+    <h1>Purchase was successful!</h1>
+</div>
+<script>
+document.getElementById("purchasebtn").addEventListener("click" , purchase);
+    function purchase(){
+                            setTimeout(() => {
+document.getElementById("purchaseText").style.display = "";
+
+
+
+
+                        }, 1000);
+
+                           setTimeout(() => {
+document.getElementById("purchaseText").style.display = "none";
+
+
+
+
+                        }, 5000);
+
+    }
+</script>
 </body>
 </html>

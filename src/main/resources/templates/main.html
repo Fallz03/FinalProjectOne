@@ -100,6 +100,10 @@ height:50%;
 <body>
 <div class="mainDiv">
     <h1>Добро Пожаловать в компьютерный магазин Скалетто</h1>
+
+
+
+
     <hr>
     <div class="menu">
 
@@ -117,7 +121,7 @@ height:50%;
 
         <div class="menu-items" sec:authorize="!isAuthenticated()">
             <img th:src="@{/imgsForMain/login.png}" alt="">
-            <a  href="/login">Вход</a>
+            <a  href="/loginn">Вход</a>
         </div>
 
             <div class="menu-items" sec:authorize="isAuthenticated()">

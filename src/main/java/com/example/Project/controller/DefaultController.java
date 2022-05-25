@@ -9,4 +9,10 @@ public class DefaultController {
 public String getWelcomePage(){
     return "welcome";
 }
+
+
+@GetMapping("/login")
+    public String getLoginPage(){
+    return "login";
+}
 }

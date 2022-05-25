@@ -28,12 +28,12 @@ public class MainService {
 
 
 
-    @Transactional
+
     public Account getAccountByUsername(String username){
         return accountRepository.getAccountByUsername(username);
     }
 
-    @Transactional
+
     public void addLaptop(Laptop theLaptop , MultipartFile multipartFile){
         Authentication authentication =
                 SecurityContextHolder.getContext().getAuthentication();
@@ -61,15 +61,15 @@ public class MainService {
 
     }
 
-    @Transactional
+
     public void saveAccount(Account theAccount) {
         accountRepository.save(theAccount);
     }
-    @Transactional
+
     public List<Laptop> getLaptopList() {
         return laptopRepository.findAll();
     }
-    @Transactional
+
     public List<Laptop> getMyLaptopList(){
         Authentication authentication =
                 SecurityContextHolder.getContext().getAuthentication();
@@ -84,9 +84,14 @@ public class MainService {
         }
         return laptopList;
     }
-    @Transactional
+
+
     public Laptop getLaptopById(long id){
         return laptopRepository.getLaptopById(id);
     }
 
+
+    public void deleteLaptopById(long id) {
+       laptopRepository.deleteById(id);
+    }
 }
