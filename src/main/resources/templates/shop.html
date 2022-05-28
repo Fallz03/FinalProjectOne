@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -79,10 +79,10 @@ grid-template-columns: auto auto auto auto auto;
             <h5 th:text="${laptop.brend}" class="card-title">Card title</h5>
             <span class="card-text">
 
-                 <p>Laptop_model: <span th:text="${laptop.model}"></span></p>
+                 <p>Laptop Model: <span th:text="${laptop.model}"></span></p>
                  <p>Price: <span th:text="${laptop.price}+'$'"></span></p>
-                 <p>Full name: <span th:text="${laptop.theAccount.name_surname}"></span></p>
-                 <p>Phone number: <span th:text="${laptop.theAccount.phone_number}"> </span></p>
+                 <p>Full Name: <span th:text="${laptop.theAccount.name_surname}"></span></p>
+                 <p>Phone Number: <span th:text="${laptop.theAccount.phone_number}"> </span></p>
 
 
             </span>
@@ -112,11 +112,11 @@ height:100px;
                     class="btn btn-danger">X</a>
 
         </div>
-        <a th:href="@{/laptop-shop/basket/buy/purchase}" id="purchasebtn" class="btn btn-primary">Purchase</a>
+        <a sec:authorize="isAuthenticated()" th:href="@{/laptop-shop/basket/buy/purchase}" id="purchasebtn" class="btn btn-primary">Purchase</a>
     </div>
 </div>
 <div style="width:500px; height:60px; background-color:white; border-radius: 10px ; position:fixed; top:850px; left:650px;  text-align: center; display:none; z-index:1000; transition:3s;" id="purchaseText" >
-    <h1>Purchase was successful!</h1>
+    <h1>Purchase was Successful</h1>
 </div>
 <script>
 document.getElementById("purchasebtn").addEventListener("click" , purchase);

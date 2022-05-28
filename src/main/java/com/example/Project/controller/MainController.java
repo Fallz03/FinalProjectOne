@@ -22,9 +22,8 @@ public class MainController {
 
 
     @GetMapping
-    public String getPage(Model model){
-        model.addAttribute("laptop_list", mainService.getLaptopList());
-        model.addAttribute("purchaseList" , purchaseList);
+    public String getPage(){
+
         return "main";
     }
 
