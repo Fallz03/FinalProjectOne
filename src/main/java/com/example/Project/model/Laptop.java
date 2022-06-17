@@ -20,7 +20,7 @@ public class Laptop {
     private String typeofmemory;
     private String gpu;
     private String system;
-    private String description;
+    private String lap_description;
     private String oldornew;
     private String imageLink;
 
@@ -41,7 +41,7 @@ return "Laptop{" +
         ", typeofmemory='" + typeofmemory + '\'' +
         ", gpu='" + gpu + '\'' +
         ", gpu='" + system + '\'' +
-        ", description='" + description + '\'' +
+        ", description='" + lap_description + '\'' +
         ", oldornew='" + oldornew+ '\'' +
         ", imageLink='" + imageLink + '\'' +
         '}';
