@@ -19,8 +19,10 @@ public class Laptop {
     private String memory;
     private String typeofmemory;
     private String gpu;
+    @Column(name = "lap_sys")
     private String system;
-    private String lap_description;
+    @Column(name = "lap_desc")
+    private String description;
     private String oldornew;
     private String imageLink;
 
@@ -41,7 +43,7 @@ return "Laptop{" +
         ", typeofmemory='" + typeofmemory + '\'' +
         ", gpu='" + gpu + '\'' +
         ", gpu='" + system + '\'' +
-        ", description='" + lap_description + '\'' +
+        ", description='" + description + '\'' +
         ", oldornew='" + oldornew+ '\'' +
         ", imageLink='" + imageLink + '\'' +
         '}';
